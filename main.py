@@ -37,12 +37,24 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.MOUSEBUTTONUP:
+        if event.type == pygame.MOUSEBUTTONDOWN:
             mousePos = pygame.mouse.get_pos()
             if RED_BOX.collidepoint(mousePos):
                 CURRENT_COLOR = COLOR_RED
             elif GREEN_BOX.collidepoint(mousePos):
                 CURRENT_COLOR = COLOR_GREEN
+            elif BLUE_BOX.collidepoint(mousePos):
+                CURRENT_COLOR = COLOR_BLUE
+            elif YELLOW_BOX.collidepoint(mousePos):
+                CURRENT_COLOR = COLOR_YELLOW
+            elif PURPLE_BOX.collidepoint(mousePos):
+                CURRENT_COLOR = COLOR_PURPLE
+            elif CYAN_BOX.collidepoint(mousePos):
+                CURRENT_COLOR = COLOR_CYAN
+            elif ORANGE_BOX.collidepoint(mousePos):
+                CURRENT_COLOR = COLOR_ORANGE
+            elif WHITE_BOX.collidepoint(mousePos):
+                CURRENT_COLOR = COLOR_WHITE
 
     SCREEN.fill(CURRENT_COLOR)
 
