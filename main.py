@@ -18,6 +18,8 @@ COLOR_CYAN   = (0, 200, 200)
 COLOR_ORANGE = (225, 150, 0)
 COLOR_WHITE  = (200, 200, 200)
 
+CURRENT_COLOR = COLOR_RED
+
 BOX_WIDTH  = 65
 BOX_HEIGHT = 30
 
@@ -35,8 +37,14 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.MOUSEBUTTONUP:
+            mousePos = pygame.mouse.get_pos()
+            if RED_BOX.collidepoint(mousePos):
+                CURRENT_COLOR = COLOR_RED
+            elif GREEN_BOX.collidepoint(mousePos):
+                CURRENT_COLOR = COLOR_GREEN
 
-    SCREEN.fill((0, 0, 0))
+    SCREEN.fill(CURRENT_COLOR)
 
     pygame.draw.rect(SCREEN, DECK_COLOR, DECK)
     pygame.draw.rect(SCREEN, COLOR_RED, RED_BOX)
